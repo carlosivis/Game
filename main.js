@@ -72,7 +72,7 @@ ctx.imageSmoothingEnabled = false;
     imgChar.addEventListener('load', (e)=>{
         cont++
         console.log(cont)
-        if(cont===4)
+        if(cont >=3)
             drawGame()
     })
 

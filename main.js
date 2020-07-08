@@ -43,7 +43,7 @@ let ctx = canvasEl.getContext('2d');
 ctx.imageSmoothingEnabled = false;
 
 
-    imgBackground.src = '/imgs/background.jpg'
+    imgBackground.src = 'imgs/background.jpg'
     map = new Map(imgBackground,2,1000,500,0)
     imgBackground.addEventListener('load', ()=>{
         cont++
@@ -72,10 +72,9 @@ ctx.imageSmoothingEnabled = false;
     imgChar.addEventListener('load', (e)=>{
         cont++
         console.log(cont)
-        if(cont >=3)
+        if(cont >=4)
             drawGame()
     })
-
 
 canvasEl.addEventListener('mousemove', (e)=>{
     charSprite.x = e.offsetX - charSprite.largura/2

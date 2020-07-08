@@ -1,7 +1,7 @@
-import {baseValueSprite, matrizChar,matrizSlime} from '/constants.js'
+/*import {baseValueSprite, matrizChar,matrizSlime} from '/constants.js'
 import {Enemy} from '/enemy.js'
 import {MainChar} from '/mainChar.js'
-import {Map} from '/map.js'
+import {Map} from '/map.js'*/
 
 
 let imgBackground = new Image()

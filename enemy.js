@@ -1,6 +1,6 @@
-import {Sprite} from '/sprite.js'
+//import {Sprite} from '/sprite.js'
 
-export class Enemy extends Sprite{
+class Enemy extends Sprite{
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         super(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite)
         this.speed = 7

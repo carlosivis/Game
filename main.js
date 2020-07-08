@@ -35,6 +35,7 @@ let map
 let chao
 let slime
 let charSprite
+let cont =0
 
 let canvasEl = document.querySelector('#game');
 let ctx = canvasEl.getContext('2d');
@@ -45,6 +46,7 @@ ctx.imageSmoothingEnabled = false;
     imgBackground.src = '/imgs/background.jpg'
     map = new Map(imgBackground,2,1000,500,0)
     imgBackground.addEventListener('load', ()=>{
+        cont++
         
     })
 
@@ -52,13 +54,13 @@ ctx.imageSmoothingEnabled = false;
     imgBackground2.src = 'imgs/background-2.png'
     chao = new Map(imgBackground2,20,1000,100,425)
     imgBackground2.addEventListener('load', ()=>{
-        
+        cont++
     })
 
     imgSlime.src = 'imgs/slimeRed.png'
     slime = new Enemy(matrizSlime, imgSlime, 1100,300, baseValueSprite,baseValueSprite,baseValueSprite,baseValueSprite)
     imgSlime.addEventListener('load', ()=>{
-        
+        cont++
     })
 
     imgChar.src = 'imgs/Megamanx.png'
@@ -66,7 +68,9 @@ ctx.imageSmoothingEnabled = false;
 
 
     imgChar.addEventListener('load', (e)=>{
-        drawGame()
+        cont++
+        if(cont===4)
+            drawGame()
     })
 
 

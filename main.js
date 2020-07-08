@@ -47,7 +47,7 @@ ctx.imageSmoothingEnabled = false;
     map = new Map(imgBackground,2,1000,500,0)
     imgBackground.addEventListener('load', ()=>{
         cont++
-        
+        console.log(cont)
     })
 
 
@@ -55,12 +55,14 @@ ctx.imageSmoothingEnabled = false;
     chao = new Map(imgBackground2,20,1000,100,425)
     imgBackground2.addEventListener('load', ()=>{
         cont++
+        console.log(cont)
     })
 
     imgSlime.src = 'imgs/slimeRed.png'
     slime = new Enemy(matrizSlime, imgSlime, 1100,300, baseValueSprite,baseValueSprite,baseValueSprite,baseValueSprite)
     imgSlime.addEventListener('load', ()=>{
         cont++
+        console.log(cont)
     })
 
     imgChar.src = 'imgs/Megamanx.png'
@@ -69,6 +71,7 @@ ctx.imageSmoothingEnabled = false;
 
     imgChar.addEventListener('load', (e)=>{
         cont++
+        console.log(cont)
         if(cont===4)
             drawGame()
     })

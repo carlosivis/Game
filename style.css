@@ -1,0 +1,10 @@
+canvas {
+    border: 1px solid gray;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+h3{
+    text-align: center;
+}

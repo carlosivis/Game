@@ -35,7 +35,8 @@ let map
 let chao
 let slime
 let charSprite
-let cont =0
+let shot = []
+//let contShot = 0
 
 let canvasEl = document.querySelector('#game');
 let ctx = canvasEl.getContext('2d');
@@ -45,35 +46,19 @@ ctx.imageSmoothingEnabled = false;
 
     imgBackground.src = 'imgs/background.jpg'
     map = new Map(imgBackground,2,1000,500,0)
-    imgBackground.addEventListener('load', ()=>{
-        cont++
-        console.log(cont)
-    })
-
 
     imgBackground2.src = 'imgs/background-2.png'
     chao = new Map(imgBackground2,20,1000,100,425)
-    imgBackground2.addEventListener('load', ()=>{
-        cont++
-        console.log(cont)
-    })
 
     imgSlime.src = 'imgs/slimeRed.png'
     slime = new Enemy(matrizSlime, imgSlime, 1100,300, baseValueSprite,baseValueSprite,baseValueSprite,baseValueSprite)
-    imgSlime.addEventListener('load', ()=>{
-        cont++
-        console.log(cont)
-    })
 
     imgChar.src = 'imgs/Megamanx.png'
     charSprite = new MainChar(matrizChar,imgChar, 0, 350, baseValueSprite,baseValueSprite,baseValueSprite/2,baseValueSprite/2)
 
 
     imgChar.addEventListener('load', (e)=>{
-        cont++
-        console.log(cont)
-        if(cont >=4)
-            drawGame()
+        drawGame()
     })
 
 canvasEl.addEventListener('mousemove', (e)=>{
@@ -81,7 +66,7 @@ canvasEl.addEventListener('mousemove', (e)=>{
     //charSprite.y = e.offsetY - charSprite.altura/2
 })
 document.body.addEventListener('keydown', e =>{
-    if(e.key === ' '){
+    if(e.key === 'w'|| e.key === 'ArrowUp'){
         console.log("pulou")
         charSprite.jump()
     }
@@ -90,6 +75,10 @@ document.body.addEventListener('keydown', e =>{
     }
     else if(e.key === 'a'|| e.key === 'ArrowLeft'){
         charSprite.walkBack()
+    }
+    else if( e.key=== ' '){
+        //contShot++
+        shot.push(new Shot(charSprite.x+30,charSprite.y+30,25,25))
     }
 })
 function drawGame(){
@@ -107,6 +96,13 @@ function drawGame(){
 
         slime.show(ctx)
         slime.move()
+        shot.forEach( i =>{
+            i.x += 5
+            //if(contShot<=2)
+                i.shot(ctx)
+            //else if(i.x >=1005)
+            //    contShot--
+            })
         
     },33)
 }

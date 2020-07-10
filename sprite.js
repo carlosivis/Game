@@ -1,4 +1,4 @@
-class Sprite {
+export class Sprite {
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         this.matriz = matriz
         this.image = image
@@ -26,17 +26,5 @@ class Sprite {
         if (this.frameSprite>=this.matriz.length) {
             this.frameSprite = 0
         }
-    }
-}
-class Shot{
-    constructor(x,y,largura,altura){
-        this.x = x
-        this.y = y
-        this.largura = largura
-        this.altura = altura
-    }
-    shot(ctx){
-        ctx.strokeStyle = 'white';
-        ctx.strokeRect(this.x, this.y, this.largura, this.altura);
     }
 }

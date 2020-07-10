@@ -1,5 +1,5 @@
-//import {Sprite} from '/sprite.js'
-class MainChar extends Sprite{
+import {Sprite} from '/sprite.js'
+export class MainChar extends Sprite{
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         super(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite)
         
@@ -34,4 +34,16 @@ class MainChar extends Sprite{
         if(this.x >=15)
             this.x -=this.walk
     }
+}
+export class Shot{
+  constructor(x,y,largura,altura){
+      this.x = x
+      this.y = y
+      this.largura = largura
+      this.altura = altura
+  }
+  shot(ctx){
+      ctx.strokeStyle = 'white';
+      ctx.strokeRect(this.x, this.y, this.largura, this.altura);
+  }
 }

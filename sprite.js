@@ -1,4 +1,4 @@
-export class Sprite {
+class Sprite {
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         this.matriz = matriz
         this.image = image

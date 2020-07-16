@@ -3,16 +3,6 @@ import {Enemy} from '/enemy.js'
 import {MainChar, Shot} from '/mainChar.js'
 import {Map} from '/map.js'*/
 
-let imgBackground = new Image()
-let imgBackground2 = new Image()
-let imgSlime = new Image()
-let imgChar = new Image()
-let map
-let chao
-let slime
-let charSprite
-let shot = []
-//let contShot = 0
 
 const baseValueSprite = 220
 const matrizChar = [
@@ -36,6 +26,17 @@ const matrizSlime = [
 
     [0,baseValueSprite*3],
     ]
+
+let imgBackground = new Image()
+let imgBackground2 = new Image()
+let imgSlime = new Image()
+let imgChar = new Image()
+let map
+let chao
+let slime
+let charSprite
+let shot = []
+//let contShot = 0
 
 let canvasEl = document.querySelector('#game');
 let ctx = canvasEl.getContext('2d');

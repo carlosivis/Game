@@ -1,5 +1,5 @@
-import {Sprite} from '/sprite.js'
-export class MainChar extends Sprite{
+//import {Sprite} from '/sprite.js'
+class MainChar extends Sprite{
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         super(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite)
         
@@ -35,7 +35,7 @@ export class MainChar extends Sprite{
             this.x -=this.walk
     }
 }
-export class Shot{
+class Shot{
   constructor(x,y,largura,altura){
       this.x = x
       this.y = y

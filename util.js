@@ -8,8 +8,3 @@ function CreateMatrizSprites(baseX,baseY,lineQtd,columnQtd,frameQtd){
     }
     return matriz
 }
-
-
-export {
-    CreateMatrizSprites
-}

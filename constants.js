@@ -21,8 +21,9 @@ const matrizSlime = [
     [0,baseValueSprite*3],
     ]
 
+    /*
 export {
     baseValueSprite,
     matrizChar,
     matrizSlime,
-}
+}*/

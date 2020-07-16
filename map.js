@@ -1,4 +1,4 @@
-class Map {
+export class Map {
     constructor(image,speed,largura,altura, height){
         this.image = image
         this.speed = speed

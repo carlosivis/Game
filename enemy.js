@@ -1,6 +1,6 @@
-//import {Sprite} from '/sprite.js'
+import {Sprite} from '/sprite.js'
 
-class Enemy extends Sprite{
+export class Enemy extends Sprite{
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         super(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite)
         this.speed = 7
@@ -11,5 +11,12 @@ class Enemy extends Sprite{
         if(this.x <= -100){
           this.x = this.startPos
         }
+    }
+    death(){
+        this.x = 1100
+        const ding = new Audio();
+        ding.src = 'sounds/ding.mp3';
+        ding.preload = 'auto';
+        ding.play();
     }
 }

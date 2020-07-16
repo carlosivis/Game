@@ -1,4 +1,4 @@
-class Sprite {
+export class Sprite {
     constructor(matriz,image, x, y, largura, altura, larguraSprite, alturaSprite){
         this.matriz = matriz
         this.image = image
@@ -19,6 +19,12 @@ class Sprite {
                 this.larguraSprite,this.alturaSprite)   
             this.animate();
     }
+    get center(){
+        return {
+            x: this.x + this.largura / 2,
+            y: this.y + this.altura / 2
+        }
+    }
     
     animate(){
         this.frameSprite++
@@ -27,16 +33,13 @@ class Sprite {
             this.frameSprite = 0
         }
     }
-}
-class Shot{
-    constructor(x,y,largura,altura){
-        this.x = x
-        this.y = y
-        this.largura = largura
-        this.altura = altura
-    }
-    shot(ctx){
-        ctx.strokeStyle = 'white';
-        ctx.strokeRect(this.x, this.y, this.largura, this.altura);
+    collision(target){
+        let a = Math.abs(target.center.x - this.center.x);
+        let b = Math.abs(target.center.y - this.center.y);
+        let d = Math.sqrt(a ** 2 + b ** 2);
+        let r1 = this.altura / 2;
+        let r2 = target.altura / 2;
+
+                return d <= r1 + r2;
     }
 }

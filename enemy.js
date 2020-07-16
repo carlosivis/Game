@@ -12,4 +12,11 @@ export class Enemy extends Sprite{
           this.x = this.startPos
         }
     }
+    death(){
+        this.x = 1100
+        const ding = new Audio();
+        ding.src = 'sounds/ding.mp3';
+        ding.preload = 'auto';
+        ding.play();
+    }
 }

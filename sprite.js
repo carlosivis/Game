@@ -19,6 +19,12 @@ export class Sprite {
                 this.larguraSprite,this.alturaSprite)   
             this.animate();
     }
+    get center(){
+        return {
+            x: this.x + this.largura / 2,
+            y: this.y + this.altura / 2
+        }
+    }
     
     animate(){
         this.frameSprite++
@@ -26,5 +32,14 @@ export class Sprite {
         if (this.frameSprite>=this.matriz.length) {
             this.frameSprite = 0
         }
+    }
+    collision(target){
+        let a = Math.abs(target.center.x - this.center.x);
+        let b = Math.abs(target.center.y - this.center.y);
+        let d = Math.sqrt(a ** 2 + b ** 2);
+        let r1 = this.altura / 2;
+        let r2 = target.altura / 2;
+
+                return d <= r1 + r2;
     }
 }

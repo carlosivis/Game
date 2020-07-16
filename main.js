@@ -54,11 +54,27 @@ document.body.addEventListener('keydown', e =>{
     else if( e.key=== ' '){
         //contShot++
         shot.push(new Shot(charSprite.x+30,charSprite.y+30,25,25))
+        e.preventDefault()
     }
 })
 document.body.addEventListener('keyup', e =>{
 
 })
+function verifyCollide(){
+    const collideChar = slime.collision(charSprite)
+    if(collideChar){
+        slime.death()
+    }
+    
+    for(let pew of shot){
+        const collideShot = pew.collision(slime)
+        if(collideShot){
+            slime.death()
+            pew.x = 1500
+            pew.canDelete = true
+        }
+    }
+}
 function drawGame(){
     setInterval(() =>{
         ctx.clearRect(0,0,1000,500)
@@ -71,17 +87,22 @@ function drawGame(){
 
         charSprite.show(ctx)
         charSprite.gravity()
+        verifyCollide()
 
         slime.show(ctx)
         slime.move()
         shot.forEach( i =>{
-            i.x += 5
-            //if(contShot<=2)
-                i.shot(ctx)
-            //else if(i.x >=1005)
-            //    contShot--
-            })
+            i.shot(ctx)
+            i.move()
+            
+        })
+
         
+        for(let i =0; i < shot.length; i++){
+            if(shot[i].canDelete){
+             shot.slice(i, 1)
+            }
+        }
     },33)
 }
 
